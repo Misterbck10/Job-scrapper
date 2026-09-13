@@ -1,0 +1,1752 @@
+{
+  "schema_version": "2.0",
+  "meta": {
+    "generated_at": "2026-07-04T13:40:49.822Z",
+    "slug": "0xkynz-python-fastapi",
+    "source_url": "https://github.com/0xkynz/codekit/tree/main/templates/skills/python-fastapi",
+    "source_ref": "main",
+    "model": "codex",
+    "analysis_version": "3.0.0",
+    "source_type": "community",
+    "content_hash": "a79c93bebc4aea9618c62864a41e5773ba26ee583c02e28036b911c47e6ee8ae",
+    "tree_hash": "ca31e57807176af7840135a030cc906b7764944a945ed2644d027a9ce25cbda0",
+    "provenance": {
+      "model_effective": "codex",
+      "fallback_chain": [
+        {
+          "agent": "codex",
+          "outcome": "success"
+        }
+      ],
+      "analysis_version": "3.0.0"
+    }
+  },
+  "skill": {
+    "name": "python-fastapi",
+    "description": "Build Python FastAPI services with uv, modular project structure, async SQLAlchemy, Pydantic settings, Alembic migrations, and pytest patterns.",
+    "summary": "Guides FastAPI service development with uv, async SQLAlchemy, Pydantic, Alembic, pytest, and modular application structure.",
+    "icon": "📦",
+    "version": "1.0.1",
+    "author": "0xkynz",
+    "license": "MIT",
+    "tags": [
+      "fastapi",
+      "python",
+      "sqlalchemy",
+      "uv",
+      "api-development"
+    ],
+    "supported_tools": [
+      "claude",
+      "codex",
+      "claude-code"
+    ],
+    "risk_factors": [
+      "scripts",
+      "external_commands",
+      "network",
+      "env_access"
+    ],
+    "category": "coding"
+  },
+  "security_audit": {
+    "risk_level": "critical",
+    "is_blocked": true,
+    "safe_to_publish": false,
+    "analysis_status": "ok",
+    "summary": "Most static findings are false positives caused by Markdown code fences or normal FastAPI example code. Confirmed risks include a remote installer piped to sh, public host binding, hardcoded secret and database defaults, permissive CORS, and unauthenticated user endpoints.",
+    "remediation": [
+      {
+        "issue": "Remote installer is piped directly into the shell.",
+        "suggestion": "Replace it with verified installation guidance that downloads, inspects, and pins the installer, or use trusted package manager instructions.",
+        "severity": "critical"
+      },
+      {
+        "issue": "Sample settings include hardcoded database and secret defaults.",
+        "suggestion": "Make database URL and secret key required environment variables. Keep placeholders only in .env.example and never as runnable defaults.",
+        "severity": "high"
+      },
+      {
+        "issue": "The guide shows permissive network and browser access defaults.",
+        "suggestion": "Use explicit CORS origins, disable credentials unless required, and avoid 0.0.0.0 as a default development host.",
+        "severity": "high"
+      },
+      {
+        "issue": "User management examples do not require authentication or authorization.",
+        "suggestion": "Add current-user and permission dependencies before presenting list, read, create, or update user routes as production patterns.",
+        "severity": "high"
+      }
+    ],
+    "risk_factor_evidence": [
+      {
+        "factor": "scripts",
+        "evidence": [
+          {
+            "file": "SKILL.md",
+            "line_start": 202,
+            "line_end": 206
+          }
+        ]
+      },
+      {
+        "factor": "external_commands",
+        "evidence": [
+          {
+            "file": "SKILL.md",
+            "line_start": 27,
+            "line_end": 88
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 88,
+            "line_end": 92
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 92,
+            "line_end": 114
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 114,
+            "line_end": 120
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 120,
+            "line_end": 161
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 161,
+            "line_end": 165
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 165,
+            "line_end": 196
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 196,
+            "line_end": 200
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 200,
+            "line_end": 231
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 231,
+            "line_end": 235
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 235,
+            "line_end": 255
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 255,
+            "line_end": 263
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 263,
+            "line_end": 286
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 286,
+            "line_end": 290
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 290,
+            "line_end": 305
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 305,
+            "line_end": 309
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 309,
+            "line_end": 346
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 346,
+            "line_end": 350
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 350,
+            "line_end": 383
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 383,
+            "line_end": 387
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 387,
+            "line_end": 442
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 442,
+            "line_end": 446
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 446,
+            "line_end": 453
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 453,
+            "line_end": 457
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 457,
+            "line_end": 468
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 468,
+            "line_end": 472
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 472,
+            "line_end": 512
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 512,
+            "line_end": 516
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 516,
+            "line_end": 526
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 526,
+            "line_end": 530
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 530,
+            "line_end": 588
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 588,
+            "line_end": 594
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 594,
+            "line_end": 632
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 632,
+            "line_end": 636
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 636,
+            "line_end": 655
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 655,
+            "line_end": 659
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 659,
+            "line_end": 678
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 678,
+            "line_end": 688
+          }
+        ]
+      },
+      {
+        "factor": "network",
+        "evidence": [
+          {
+            "file": "SKILL.md",
+            "line_start": 94,
+            "line_end": 94
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 628,
+            "line_end": 628
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 661,
+            "line_end": 661
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 664,
+            "line_end": 664
+          }
+        ]
+      },
+      {
+        "factor": "env_access",
+        "evidence": [
+          {
+            "file": "SKILL.md",
+            "line_start": 105,
+            "line_end": 105
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 133,
+            "line_end": 133
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 552,
+            "line_end": 552
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 571,
+            "line_end": 571
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 183,
+            "line_end": 183
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 211,
+            "line_end": 211
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 543,
+            "line_end": 543
+          },
+          {
+            "file": "SKILL.md",
+            "line_start": 186,
+            "line_end": 186
+          }
+        ]
+      }
+    ],
+    "static_findings": [
+      {
+        "id": "scripts:SKILL.md:202:dynamic-import-expression",
+        "category": "scripts",
+        "severity": "medium",
+        "pattern": "Dynamic import() expression",
+        "file": "SKILL.md",
+        "line_start": 202,
+        "line_end": 206,
+        "snippet": "from sqlalchemy.ext.asyncio import ("
+      },
+      {
+        "id": "external_commands:SKILL.md:27:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 27,
+        "line_end": 88,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:88:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 88,
+        "line_end": 92,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:92:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 92,
+        "line_end": 114,
+        "snippet": "```bash"
+      },
+      {
+        "id": "external_commands:SKILL.md:114:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 114,
+        "line_end": 120,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:120:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 120,
+        "line_end": 161,
+        "snippet": "```toml"
+      },
+      {
+        "id": "external_commands:SKILL.md:161:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 161,
+        "line_end": 165,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:165:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 165,
+        "line_end": 196,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:196:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 196,
+        "line_end": 200,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:200:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 200,
+        "line_end": 231,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:231:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 231,
+        "line_end": 235,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:235:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 235,
+        "line_end": 255,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:255:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 255,
+        "line_end": 263,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:263:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 263,
+        "line_end": 286,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:286:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 286,
+        "line_end": 290,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:290:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 290,
+        "line_end": 305,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:305:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 305,
+        "line_end": 309,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:309:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 309,
+        "line_end": 346,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:346:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 346,
+        "line_end": 350,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:350:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 350,
+        "line_end": 383,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:383:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 383,
+        "line_end": 387,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:387:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 387,
+        "line_end": 442,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:442:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 442,
+        "line_end": 446,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:446:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 446,
+        "line_end": 453,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:453:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 453,
+        "line_end": 457,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:457:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 457,
+        "line_end": 468,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:468:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 468,
+        "line_end": 472,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:472:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 472,
+        "line_end": 512,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:512:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 512,
+        "line_end": 516,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:516:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 516,
+        "line_end": 526,
+        "snippet": "```bash"
+      },
+      {
+        "id": "external_commands:SKILL.md:526:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 526,
+        "line_end": 530,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:530:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 530,
+        "line_end": 588,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:588:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 588,
+        "line_end": 594,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:594:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 594,
+        "line_end": 632,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:632:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 632,
+        "line_end": 636,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:636:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 636,
+        "line_end": 655,
+        "snippet": "```python"
+      },
+      {
+        "id": "external_commands:SKILL.md:655:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 655,
+        "line_end": 659,
+        "snippet": "```"
+      },
+      {
+        "id": "external_commands:SKILL.md:659:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 659,
+        "line_end": 678,
+        "snippet": "```bash"
+      },
+      {
+        "id": "external_commands:SKILL.md:678:ruby-shell-backtick-execution",
+        "category": "external_commands",
+        "severity": "medium",
+        "pattern": "Ruby/shell backtick execution",
+        "file": "SKILL.md",
+        "line_start": 678,
+        "line_end": 688,
+        "snippet": "```"
+      },
+      {
+        "id": "network:SKILL.md:94:hardcoded-url",
+        "category": "network",
+        "severity": "low",
+        "pattern": "Hardcoded URL",
+        "file": "SKILL.md",
+        "line_start": 94,
+        "line_end": 94,
+        "snippet": "curl -LsSf https://astral.sh/uv/install.sh | sh"
+      },
+      {
+        "id": "network:SKILL.md:628:hardcoded-url",
+        "category": "network",
+        "severity": "low",
+        "pattern": "Hardcoded URL",
+        "file": "SKILL.md",
+        "line_start": 628,
+        "line_end": 628,
+        "snippet": "base_url=\"http://test\""
+      },
+      {
+        "id": "network:SKILL.md:661:hardcoded-ip-address",
+        "category": "network",
+        "severity": "medium",
+        "pattern": "Hardcoded IP address",
+        "file": "SKILL.md",
+        "line_start": 661,
+        "line_end": 661,
+        "snippet": "uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
+      },
+      {
+        "id": "network:SKILL.md:664:hardcoded-ip-address",
+        "category": "network",
+        "severity": "medium",
+        "pattern": "Hardcoded IP address",
+        "file": "SKILL.md",
+        "line_start": 664,
+        "line_end": 664,
+        "snippet": "uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4"
+      },
+      {
+        "id": "env_access:SKILL.md:105:dotenv-library",
+        "category": "env_access",
+        "severity": "low",
+        "pattern": "dotenv library",
+        "file": "SKILL.md",
+        "line_start": 105,
+        "line_end": 105,
+        "snippet": "uv add pydantic pydantic-settings python-dotenv"
+      },
+      {
+        "id": "env_access:SKILL.md:133:dotenv-library",
+        "category": "env_access",
+        "severity": "low",
+        "pattern": "dotenv library",
+        "file": "SKILL.md",
+        "line_start": 133,
+        "line_end": 133,
+        "snippet": "\"python-dotenv>=1.0.0\","
+      },
+      {
+        "id": "env_access:SKILL.md:552:configuration-library",
+        "category": "env_access",
+        "severity": "low",
+        "pattern": "Configuration library",
+        "file": "SKILL.md",
+        "line_start": 552,
+        "line_end": 552,
+        "snippet": "url = config.get_main_option(\"sqlalchemy.url\")"
+      },
+      {
+        "id": "env_access:SKILL.md:571:configuration-library",
+        "category": "env_access",
+        "severity": "low",
+        "pattern": "Configuration library",
+        "file": "SKILL.md",
+        "line_start": 571,
+        "line_end": 571,
+        "snippet": "config.get_section(config.config_ini_section, {}),"
+      },
+      {
+        "id": "env_access:SKILL.md:183:database-connection-strings",
+        "category": "env_access",
+        "severity": "high",
+        "pattern": "Database connection strings",
+        "file": "SKILL.md",
+        "line_start": 183,
+        "line_end": 183,
+        "snippet": "database_url: str = \"postgresql+asyncpg://user:pass@localhost:5432/db\""
+      },
+      {
+        "id": "env_access:SKILL.md:211:database-connection-strings",
+        "category": "env_access",
+        "severity": "high",
+        "pattern": "Database connection strings",
+        "file": "SKILL.md",
+        "line_start": 211,
+        "line_end": 211,
+        "snippet": "settings.database_url,"
+      },
+      {
+        "id": "env_access:SKILL.md:543:database-connection-strings",
+        "category": "env_access",
+        "severity": "high",
+        "pattern": "Database connection strings",
+        "file": "SKILL.md",
+        "line_start": 543,
+        "line_end": 543,
+        "snippet": "config.set_main_option(\"sqlalchemy.url\", settings.database_url)"
+      },
+      {
+        "id": "env_access:SKILL.md:186:generic-api-secret-keys",
+        "category": "env_access",
+        "severity": "high",
+        "pattern": "Generic API/secret keys",
+        "file": "SKILL.md",
+        "line_start": 186,
+        "line_end": 186,
+        "snippet": "secret_key: str = \"change-me-in-production\""
+      },
+      {
+        "id": "sensitive:SKILL.md:32:environment-file-access",
+        "category": "sensitive",
+        "severity": "high",
+        "pattern": "Environment file access",
+        "file": "SKILL.md",
+        "line_start": 32,
+        "line_end": 32,
+        "snippet": "├── .env                      # Environment variables"
+      },
+      {
+        "id": "sensitive:SKILL.md:33:environment-file-access",
+        "category": "sensitive",
+        "severity": "high",
+        "pattern": "Environment file access",
+        "file": "SKILL.md",
+        "line_start": 33,
+        "line_end": 33,
+        "snippet": "├── .env.example"
+      },
+      {
+        "id": "sensitive:SKILL.md:172:environment-file-access",
+        "category": "sensitive",
+        "severity": "high",
+        "pattern": "Environment file access",
+        "file": "SKILL.md",
+        "line_start": 172,
+        "line_end": 172,
+        "snippet": "env_file=\".env\","
+      },
+      {
+        "id": "sensitive:SKILL.md:318:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 318,
+        "line_end": 318,
+        "snippet": "self.db = db"
+      },
+      {
+        "id": "sensitive:SKILL.md:321:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 321,
+        "line_end": 321,
+        "snippet": "result = await self.db.execute(select(User).where(User.id == id))"
+      },
+      {
+        "id": "sensitive:SKILL.md:325:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 325,
+        "line_end": 325,
+        "snippet": "result = await self.db.execute(select(User).where(User.email == email))"
+      },
+      {
+        "id": "sensitive:SKILL.md:329:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 329,
+        "line_end": 329,
+        "snippet": "result = await self.db.execute(select(User).offset(skip).limit(limit))"
+      },
+      {
+        "id": "sensitive:SKILL.md:334:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 334,
+        "line_end": 334,
+        "snippet": "self.db.add(user)"
+      },
+      {
+        "id": "sensitive:SKILL.md:335:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 335,
+        "line_end": 335,
+        "snippet": "await self.db.flush()"
+      },
+      {
+        "id": "sensitive:SKILL.md:336:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 336,
+        "line_end": 336,
+        "snippet": "await self.db.refresh(user)"
+      },
+      {
+        "id": "sensitive:SKILL.md:343:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 343,
+        "line_end": 343,
+        "snippet": "await self.db.flush()"
+      },
+      {
+        "id": "sensitive:SKILL.md:344:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 344,
+        "line_end": 344,
+        "snippet": "await self.db.refresh(user)"
+      },
+      {
+        "id": "sensitive:SKILL.md:361:sqlite-database-file",
+        "category": "sensitive",
+        "severity": "medium",
+        "pattern": "SQLite database file",
+        "file": "SKILL.md",
+        "line_start": 361,
+        "line_end": 361,
+        "snippet": "self.db = db"
+      },
+      {
+        "id": "blocker:SKILL.md:94:pipe-to-shell-pattern",
+        "category": "blocker",
+        "severity": "critical",
+        "pattern": "Pipe to shell pattern",
+        "file": "SKILL.md",
+        "line_start": 94,
+        "line_end": 94,
+        "snippet": "curl -LsSf https://astral.sh/uv/install.sh | sh"
+      },
+      {
+        "id": "blocker:SKILL.md:321:system-reconnaissance",
+        "category": "blocker",
+        "severity": "low",
+        "pattern": "System reconnaissance",
+        "file": "SKILL.md",
+        "line_start": 321,
+        "line_end": 321,
+        "snippet": "result = await self.db.execute(select(User).where(User.id == id))"
+      }
+    ],
+    "finding_verdicts": [
+      {
+        "id": "scripts:SKILL.md:202:dynamic-import-expression",
+        "verdict": "false_positive",
+        "confidence": 0.97,
+        "reason": "This is a multi-line Python import from sqlalchemy.ext.asyncio, not JavaScript dynamic import execution. No runtime code loading or user-controlled module path is present."
+      },
+      {
+        "id": "external_commands:SKILL.md:27:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:88:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:92:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:114:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:120:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:161:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:165:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:196:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:200:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:231:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:235:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:255:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:263:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:286:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:290:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:305:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:309:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:346:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:350:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:383:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:387:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:442:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:446:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:453:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:457:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:468:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:472:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:512:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:516:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:526:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:530:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:588:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:594:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:632:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:636:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:655:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:659:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "external_commands:SKILL.md:678:ruby-shell-backtick-execution",
+        "verdict": "false_positive",
+        "confidence": 0.92,
+        "reason": "The static match is a Markdown code-fence delimiter around documentation examples, not Ruby backtick shell execution. The skill file does not contain executable code that automatically runs the fenced block."
+      },
+      {
+        "id": "network:SKILL.md:94:hardcoded-url",
+        "verdict": "confirmed",
+        "confidence": 0.9,
+        "severity": "low",
+        "reason": "The guide hardcodes an external installer URL that users or agents may execute during setup. The URL is expected for uv installation, but it still creates supply-chain exposure when followed."
+      },
+      {
+        "id": "network:SKILL.md:628:hardcoded-url",
+        "verdict": "false_positive",
+        "confidence": 0.96,
+        "reason": "The http://test value is an httpx test client base URL used with ASGITransport. It is not an outbound service endpoint or credential exfiltration target."
+      },
+      {
+        "id": "network:SKILL.md:661:hardcoded-ip-address",
+        "verdict": "confirmed",
+        "confidence": 0.78,
+        "severity": "medium",
+        "reason": "The uvicorn command binds the application to 0.0.0.0, which can expose the service on all interfaces if copied without network controls. This is legitimate in some deployments but risky as default guidance."
+      },
+      {
+        "id": "network:SKILL.md:664:hardcoded-ip-address",
+        "verdict": "confirmed",
+        "confidence": 0.78,
+        "severity": "medium",
+        "reason": "The uvicorn command binds the application to 0.0.0.0, which can expose the service on all interfaces if copied without network controls. This is legitimate in some deployments but risky as default guidance."
+      },
+      {
+        "id": "env_access:SKILL.md:105:dotenv-library",
+        "verdict": "false_positive",
+        "confidence": 0.9,
+        "reason": "This only documents adding python-dotenv as a configuration dependency. It does not read, print, or transmit environment secrets."
+      },
+      {
+        "id": "env_access:SKILL.md:133:dotenv-library",
+        "verdict": "false_positive",
+        "confidence": 0.9,
+        "reason": "This only documents adding python-dotenv as a configuration dependency. It does not read, print, or transmit environment secrets."
+      },
+      {
+        "id": "env_access:SKILL.md:552:configuration-library",
+        "verdict": "false_positive",
+        "confidence": 0.91,
+        "reason": "The code reads Alembic configuration values needed for migrations. There is no evidence of secret disclosure or unauthorized environment access."
+      },
+      {
+        "id": "env_access:SKILL.md:571:configuration-library",
+        "verdict": "false_positive",
+        "confidence": 0.91,
+        "reason": "The code reads Alembic configuration values needed for migrations. There is no evidence of secret disclosure or unauthorized environment access."
+      },
+      {
+        "id": "env_access:SKILL.md:183:database-connection-strings",
+        "verdict": "confirmed",
+        "confidence": 0.67,
+        "severity": "high",
+        "reason": "The sample settings include a runnable database URL with embedded username and password. The values are placeholders, but copied defaults can normalize hardcoded database credentials."
+      },
+      {
+        "id": "env_access:SKILL.md:211:database-connection-strings",
+        "verdict": "false_positive",
+        "confidence": 0.87,
+        "reason": "These lines pass a configured database URL into SQLAlchemy or Alembic, which is normal application behavior. The lines do not contain a concrete secret or an exfiltration path."
+      },
+      {
+        "id": "env_access:SKILL.md:543:database-connection-strings",
+        "verdict": "false_positive",
+        "confidence": 0.87,
+        "reason": "These lines pass a configured database URL into SQLAlchemy or Alembic, which is normal application behavior. The lines do not contain a concrete secret or an exfiltration path."
+      },
+      {
+        "id": "env_access:SKILL.md:186:generic-api-secret-keys",
+        "verdict": "confirmed",
+        "confidence": 0.86,
+        "severity": "high",
+        "reason": "The sample application defines a default secret key value. If copied into a real app, predictable signing secrets can compromise tokens or other security-sensitive data."
+      },
+      {
+        "id": "sensitive:SKILL.md:32:environment-file-access",
+        "verdict": "false_positive",
+        "confidence": 0.86,
+        "reason": "The .env references are project-structure and pydantic-settings examples for local configuration. The skill does not read the agent environment or disclose .env contents."
+      },
+      {
+        "id": "sensitive:SKILL.md:33:environment-file-access",
+        "verdict": "false_positive",
+        "confidence": 0.86,
+        "reason": "The .env references are project-structure and pydantic-settings examples for local configuration. The skill does not read the agent environment or disclose .env contents."
+      },
+      {
+        "id": "sensitive:SKILL.md:172:environment-file-access",
+        "verdict": "false_positive",
+        "confidence": 0.86,
+        "reason": "The .env references are project-structure and pydantic-settings examples for local configuration. The skill does not read the agent environment or disclose .env contents."
+      },
+      {
+        "id": "sensitive:SKILL.md:318:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:321:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:325:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:329:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:334:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:335:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:336:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:343:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:344:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "sensitive:SKILL.md:361:sqlite-database-file",
+        "verdict": "false_positive",
+        "confidence": 0.94,
+        "reason": "The matched lines are async SQLAlchemy session operations using a variable named db. They are not SQLite database file paths or attempts to access local database files."
+      },
+      {
+        "id": "blocker:SKILL.md:94:pipe-to-shell-pattern",
+        "verdict": "confirmed",
+        "confidence": 0.97,
+        "severity": "critical",
+        "reason": "The setup command fetches a remote installer and pipes it directly to sh. If an agent follows it, network-delivered code executes without inspection or pinning."
+      },
+      {
+        "id": "blocker:SKILL.md:321:system-reconnaissance",
+        "verdict": "false_positive",
+        "confidence": 0.95,
+        "reason": "This line executes a SQLAlchemy query for a user by id inside repository code. It is not collecting system information or performing host reconnaissance."
+      }
+    ],
+    "semantic_findings": [
+      {
+        "title": "Permissive CORS Configuration",
+        "description": "The sample FastAPI app allows all origins, methods, headers, and credentials. If copied into production, authenticated browser requests can be exposed to unintended origins.",
+        "severity": "high",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 498,
+            "line_end": 503
+          }
+        ],
+        "confidence": 0.88,
+        "confidence_reasoning": "The CORS middleware configuration explicitly combines wildcard access with credentials. This is a common production security misconfiguration."
+      },
+      {
+        "title": "Unauthenticated User Management Endpoints",
+        "description": "The sample user router lists, reads, creates, and updates users without an authentication or authorization dependency. If copied, it can allow user enumeration or unauthorized account changes.",
+        "severity": "high",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 402,
+            "line_end": 441
+          }
+        ],
+        "confidence": 0.86,
+        "confidence_reasoning": "The route handlers depend only on the service dependency and show no current-user, role, or permission check. The endpoints operate on user records directly."
+      }
+    ],
+    "critical_findings": [
+      {
+        "title": "Pipe to shell pattern",
+        "description": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 94,
+            "line_end": 94
+          }
+        ],
+        "review_kind": "security",
+        "source_category": "blocker",
+        "source_severity": "critical",
+        "confidence": 0.97,
+        "confidence_reasoning": "The setup command fetches a remote installer and pipes it directly to sh. If an agent follows it, network-delivered code executes without inspection or pinning."
+      }
+    ],
+    "high_findings": [
+      {
+        "title": "Database connection strings",
+        "description": "database_url: str = \"postgresql+asyncpg://user:pass@localhost:5432/db\"",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 183,
+            "line_end": 183
+          }
+        ],
+        "review_kind": "capability",
+        "source_category": "env_access",
+        "source_severity": "high",
+        "confidence": 0.67,
+        "confidence_reasoning": "The sample settings include a runnable database URL with embedded username and password. The values are placeholders, but copied defaults can normalize hardcoded database credentials."
+      },
+      {
+        "title": "Generic API/secret keys",
+        "description": "secret_key: str = \"change-me-in-production\"",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 186,
+            "line_end": 186
+          }
+        ],
+        "review_kind": "capability",
+        "source_category": "env_access",
+        "source_severity": "high",
+        "confidence": 0.86,
+        "confidence_reasoning": "The sample application defines a default secret key value. If copied into a real app, predictable signing secrets can compromise tokens or other security-sensitive data."
+      },
+      {
+        "title": "Permissive CORS Configuration",
+        "description": "The sample FastAPI app allows all origins, methods, headers, and credentials. If copied into production, authenticated browser requests can be exposed to unintended origins.",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 498,
+            "line_end": 503
+          }
+        ],
+        "review_kind": "security",
+        "source_category": "semantic",
+        "source_severity": "high",
+        "confidence": 0.88,
+        "confidence_reasoning": "The CORS middleware configuration explicitly combines wildcard access with credentials. This is a common production security misconfiguration."
+      },
+      {
+        "title": "Unauthenticated User Management Endpoints",
+        "description": "The sample user router lists, reads, creates, and updates users without an authentication or authorization dependency. If copied, it can allow user enumeration or unauthorized account changes.",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 402,
+            "line_end": 441
+          }
+        ],
+        "review_kind": "security",
+        "source_category": "semantic",
+        "source_severity": "high",
+        "confidence": 0.86,
+        "confidence_reasoning": "The route handlers depend only on the service dependency and show no current-user, role, or permission check. The endpoints operate on user records directly."
+      }
+    ],
+    "medium_findings": [
+      {
+        "title": "Hardcoded IP address",
+        "description": "uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 661,
+            "line_end": 661
+          }
+        ],
+        "review_kind": "capability",
+        "source_category": "network",
+        "source_severity": "medium",
+        "confidence": 0.78,
+        "confidence_reasoning": "The uvicorn command binds the application to 0.0.0.0, which can expose the service on all interfaces if copied without network controls. This is legitimate in some deployments but risky as default guidance."
+      },
+      {
+        "title": "Hardcoded IP address",
+        "description": "uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 664,
+            "line_end": 664
+          }
+        ],
+        "review_kind": "capability",
+        "source_category": "network",
+        "source_severity": "medium",
+        "confidence": 0.78,
+        "confidence_reasoning": "The uvicorn command binds the application to 0.0.0.0, which can expose the service on all interfaces if copied without network controls. This is legitimate in some deployments but risky as default guidance."
+      }
+    ],
+    "low_findings": [
+      {
+        "title": "Hardcoded URL",
+        "description": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 94,
+            "line_end": 94
+          }
+        ],
+        "review_kind": "capability",
+        "source_category": "network",
+        "source_severity": "low",
+        "confidence": 0.9,
+        "confidence_reasoning": "The guide hardcodes an external installer URL that users or agents may execute during setup. The URL is expected for uv installation, but it still creates supply-chain exposure when followed."
+      }
+    ],
+    "dangerous_patterns": [
+      {
+        "title": "Pipe to shell pattern",
+        "description": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+        "locations": [
+          {
+            "file": "SKILL.md",
+            "line_start": 94,
+            "line_end": 94
+          }
+        ],
+        "review_kind": "security",
+        "source_category": "blocker",
+        "source_severity": "critical",
+        "confidence": 0.97,
+        "confidence_reasoning": "The setup command fetches a remote installer and pipes it directly to sh. If an agent follows it, network-delivered code executes without inspection or pinning."
+      }
+    ],
+    "files_scanned": 1,
+    "total_lines": 710,
+    "audit_model": "codex",
+    "audited_at": "2026-07-04T13:40:49.822Z",
+    "agent_auto_install_policy": "blocked",
+    "manual_install_policy": "allowed_with_warning"
+  },
+  "content": {
+    "user_title": "Build FastAPI APIs with uv and SQLAlchemy",
+    "value_statement": "FastAPI projects often grow inconsistent when setup, config, database access, and tests are designed separately. This skill gives Claude, Codex, and Claude Code a structured FastAPI blueprint with uv, SQLAlchemy, Pydantic, Alembic, and pytest patterns.",
+    "seo_keywords": [
+      "Claude",
+      "Codex",
+      "Claude Code",
+      "FastAPI skill",
+      "Python API development",
+      "uv package manager",
+      "SQLAlchemy async",
+      "Pydantic settings",
+      "Alembic migrations",
+      "pytest FastAPI"
+    ],
+    "actual_capabilities": [
+      "Outlines a feature-based FastAPI project structure for Python services.",
+      "Provides uv setup commands for dependencies, development tools, and project initialization.",
+      "Shows Pydantic settings patterns for application, database, and security configuration.",
+      "Demonstrates async SQLAlchemy session setup, repositories, services, and models.",
+      "Includes Alembic migration guidance and pytest examples for API testing.",
+      "Lists common run, lint, format, type-check, and coverage commands."
+    ],
+    "limitations": [
+      "It is a Markdown guidance skill, not a runnable FastAPI scaffold generator by itself.",
+      "Security-sensitive examples need review before production use.",
+      "Deployment, observability, and cloud infrastructure are not covered in depth.",
+      "Auth utilities are referenced but not fully implemented in the guide."
+    ],
+    "use_cases": [
+      {
+        "title": "Start a New API Service",
+        "target_user": "Backend developer",
+        "description": "Create a consistent FastAPI project layout with uv, typed settings, database modules, tests, and common development commands."
+      },
+      {
+        "title": "Standardize Team Patterns",
+        "target_user": "Engineering lead",
+        "description": "Align routes, services, repositories, schemas, migrations, and tests across multiple Python API contributors."
+      },
+      {
+        "title": "Upgrade an Existing FastAPI App",
+        "target_user": "Maintenance engineer",
+        "description": "Refactor an existing service toward async SQLAlchemy, modular feature folders, Pydantic v2 settings, and pytest coverage."
+      }
+    ],
+    "prompt_templates": [
+      {
+        "title": "Create a Project Plan",
+        "scenario": "Beginner setup",
+        "prompt": "Use this FastAPI skill to plan a new Python API project with uv, SQLAlchemy, Pydantic settings, Alembic, and pytest. Include the folder structure and first setup steps."
+      },
+      {
+        "title": "Generate a Feature Module",
+        "scenario": "Intermediate implementation",
+        "prompt": "Use this FastAPI skill to design a products feature module. Include schemas, model fields, repository methods, service methods, routes, and tests."
+      },
+      {
+        "title": "Review an Existing App",
+        "scenario": "Codebase review",
+        "prompt": "Use this FastAPI skill to review my app structure. Identify gaps in configuration, database sessions, migrations, repositories, services, routes, and tests."
+      },
+      {
+        "title": "Harden Production Readiness",
+        "scenario": "Advanced review",
+        "prompt": "Use this FastAPI skill to prepare a production readiness checklist for my service. Cover settings, database migrations, CORS, auth boundaries, tests, linting, and deployment commands."
+      }
+    ],
+    "output_examples": [
+      {
+        "input": "Plan a new customer API using FastAPI and uv.",
+        "output": [
+          "A domain-based folder map for the customer feature.",
+          "A setup sequence for uv, dependencies, tests, linting, and migrations.",
+          "A short list of configuration and security decisions to confirm before implementation."
+        ]
+      },
+      {
+        "input": "Add database access patterns for a user module.",
+        "output": [
+          "A repository and service design using async SQLAlchemy sessions.",
+          "Pydantic request and response schema guidance.",
+          "Test scenarios for create, read, update, and duplicate-email behavior."
+        ]
+      },
+      {
+        "input": "Review my FastAPI project for missing structure.",
+        "output": [
+          "A concise gap list covering settings, routers, models, migrations, tests, and tooling.",
+          "Prioritized next steps for aligning the project with the skill patterns."
+        ]
+      }
+    ],
+    "best_practices": [
+      "Require production secrets through environment variables or a managed secret store.",
+      "Keep feature folders cohesive, with routes, schemas, services, repositories, and tests together.",
+      "Run migrations, tests, linting, formatting, and type checks before release."
+    ],
+    "anti_patterns": [
+      "Do not copy placeholder secrets or database passwords into production code.",
+      "Do not expose development servers on all network interfaces without a clear need.",
+      "Do not publish user management routes without authentication and authorization checks."
+    ],
+    "faq": [
+      {
+        "question": "Does this skill create a complete FastAPI project automatically?",
+        "answer": "No. It provides guidance and examples that Claude, Codex, or Claude Code can use while helping you create files."
+      },
+      {
+        "question": "Which Python version does the guide target?",
+        "answer": "It targets Python 3.12 or newer and modern FastAPI, Pydantic v2, SQLAlchemy 2.0, and pytest patterns."
+      },
+      {
+        "question": "Does it include database migrations?",
+        "answer": "Yes. It includes Alembic setup guidance and an async migration environment pattern."
+      },
+      {
+        "question": "Can I use SQLite with this skill?",
+        "answer": "Yes. The guide mentions SQLite for development and in-memory SQLite for tests, while PostgreSQL is the main database target."
+      },
+      {
+        "question": "Does it implement authentication completely?",
+        "answer": "No. It references authentication modules and security helpers, but full authentication implementation must be added separately."
+      },
+      {
+        "question": "Is the guidance production ready as written?",
+        "answer": "No. Review secrets, CORS, host binding, authentication, deployment, and operational settings before production use."
+      }
+    ]
+  },
+  "file_structure": [
+    {
+      "name": "SKILL.md",
+      "type": "file",
+      "path": "SKILL.md",
+      "lines": 710
+    }
+  ]
+}

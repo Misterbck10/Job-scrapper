@@ -1,0 +1,9 @@
+{
+  "tool": "pytest",
+  "gate": null,
+  "additionalTools": ["pytest-asyncio", "testcontainers"],
+  "e2eTool": "none",
+  "testDir": "tests",
+  "filePattern": "test_*.py",
+  "packageManager": "uv"
+}

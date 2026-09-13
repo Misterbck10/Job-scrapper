@@ -1,7 +1,7 @@
 # bootstrap-api-core. Esqueleto vertical da API do Job Scraper (Fase 01)
 
 **Data**: 2026-09-13
-**Status**: In Progress
+**Status**: Accepted
 **Feature relacionada**: `docs/scope/phase-01-api-core.md` (features 1 a 8)
 
 ## Summary

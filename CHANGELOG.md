@@ -18,7 +18,8 @@ All notable changes to this project are documented in this file.
     connectivity check, wired into `/readyz`.
   - `POST /v1/searches`, `POST /v1/searches/{search_id}/runs` (with `Idempotency-Key` support),
     `GET /v1/runs/{crawl_run_id}`, `GET /v1/jobs` (keyset cursor pagination).
-  - Unit tests (settings, models, cursor) and testcontainers-backed integration tests (happy
-    path, idempotency replay/conflict, jobs pagination).
+  - Unit tests (settings, models, cursor, request-ID logging middleware) and testcontainers-backed
+    integration tests (happy path, idempotency replay/conflict, jobs pagination, health checks).
+    27 tests passing.
 - `docker-compose.yml`: published `postgres`/`valkey` ports to `127.0.0.1` for local, non-Docker
   development against the compose containers.

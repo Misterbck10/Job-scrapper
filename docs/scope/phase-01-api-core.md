@@ -11,14 +11,14 @@ _These are recommendations to keep your build orderly, not requirements. Skip an
 
 | # | Feature | Phase | Status |
 |---|---------|-------|--------|
-| 1 | App factory, settings, structured logging | Foundation | in-progress |
-| 2 | PostgreSQL async setup + Alembic | Foundation | in-progress |
-| 3 | Valkey/Redis client + ARQ worker skeleton | Foundation | in-progress |
-| 4 | MinIO client abstraction | Foundation | in-progress |
-| 5 | Core domain models | Foundation | in-progress |
-| 6 | Searches and runs API | Slice 1 | in-progress |
-| 7 | Jobs read API | Slice 1 | in-progress |
-| 8 | Test suite (unit + integration) | Slice 1 | in-progress |
+| 1 | App factory, settings, structured logging | Foundation | done |
+| 2 | PostgreSQL async setup + Alembic | Foundation | done |
+| 3 | Valkey/Redis client + ARQ worker skeleton | Foundation | done |
+| 4 | MinIO client abstraction | Foundation | done |
+| 5 | Core domain models | Foundation | done |
+| 6 | Searches and runs API | Slice 1 | done |
+| 7 | Jobs read API | Slice 1 | done |
+| 8 | Test suite (unit + integration) | Slice 1 | done |
 
 ## Foundations
 
@@ -30,8 +30,8 @@ FastAPI application factory driven by Pydantic Settings, with `structlog` reques
    - [x] `Settings` (Pydantic Settings) loading `.env` (AC-1)
    - [x] `structlog` config + correlation-ID middleware (AC-2)
    - [x] `create_app()` application factory wiring both (AC-1, AC-2)
-- [ ] Verify it: `/check verify app factory, settings, structured logging`
-- [ ] Test it: `/test app factory, settings, structured logging`
+- [x] Verify it: `/check verify app factory, settings, structured logging`
+- [x] Test it: `/test app factory, settings, structured logging`
 Spec `bootstrap-api-core` · code in `app/core/config.py`, `app/core/logging.py`, `app/main.py`
 
 ### 2. PostgreSQL async setup + Alembic
@@ -42,8 +42,8 @@ Async SQLAlchemy 2.x engine/session wiring using asyncpg, plus Alembic configure
    - [x] Alembic init (async `env.py`) (AC-3)
    - [x] `0001_initial_schema` migration for the 7 tables (AC-3)
    - [x] Async engine/session + `get_session()` dependency (AC-4)
-- [ ] Verify it: `/check verify postgresql async setup + alembic`
-- [ ] Test it: `/test postgresql async setup + alembic`
+- [x] Verify it: `/check verify postgresql async setup + alembic`
+- [x] Test it: `/test postgresql async setup + alembic`
 Spec `bootstrap-api-core` · code in `alembic/`, `app/db/session.py`
 
 ### 3. Valkey/Redis client + ARQ worker skeleton
@@ -53,8 +53,8 @@ A shared Valkey/Redis client and an ARQ `WorkerSettings` skeleton (no real jobs 
 - [x] Build it: `/develop valkey/redis client + arq worker skeleton`
    - [x] Redis/ARQ pool client (AC-5)
    - [x] `WorkerSettings` + trivial `complete_crawl_run` task (AC-5)
-- [ ] Verify it: `/check verify valkey/redis client + arq worker skeleton`
-- [ ] Test it: `/test valkey/redis client + arq worker skeleton`
+- [x] Verify it: `/check verify valkey/redis client + arq worker skeleton`
+- [x] Test it: `/test valkey/redis client + arq worker skeleton`
 Spec `bootstrap-api-core` · code in `app/core/queue.py`, `app/workers/settings.py`
 
 ### 4. MinIO client abstraction
@@ -64,8 +64,8 @@ A MinIO/S3 client wrapper (via boto3) behind an interface, wired to settings, wi
 - [x] Build it: `/develop minio client abstraction`
    - [x] `ArtifactStore` interface + `MinioArtifactStore` (boto3) implementation (AC-6)
    - [x] Connectivity check method (AC-6)
-- [ ] Verify it: `/check verify minio client abstraction`
-- [ ] Test it: `/test minio client abstraction`
+- [x] Verify it: `/check verify minio client abstraction`
+- [x] Test it: `/test minio client abstraction`
 Spec `bootstrap-api-core` · code in `app/artifacts/store.py`
 
 ### 5. Core domain models
@@ -74,8 +74,8 @@ SQLAlchemy models and Alembic migration for `countries`, `sources`, `searches`, 
 - [x] Design it (spec): `/architect core domain models`
 - [x] Build it: `/develop core domain models`
    - [x] 7 SQLAlchemy 2.x models with FKs and constraints (AC-3)
-- [ ] Verify it: `/check verify core domain models`
-- [ ] Test it: `/test core domain models`
+- [x] Verify it: `/check verify core domain models`
+- [x] Test it: `/test core domain models`
 Spec `bootstrap-api-core` · code in `app/domain/models.py`
 
 ## Slice 1: Searches, runs, jobs
@@ -88,8 +88,8 @@ Spec `bootstrap-api-core` · code in `app/domain/models.py`
    - [x] `POST /v1/searches` (AC-7)
    - [x] `POST /v1/searches/{search_id}/runs` + Idempotency-Key handling (AC-8, AC-9)
    - [x] `GET /v1/runs/{crawl_run_id}` (AC-10)
-- [ ] Verify it: `/check verify searches and runs api`
-- [ ] Test it: `/test searches and runs api`
+- [x] Verify it: `/check verify searches and runs api`
+- [x] Test it: `/test searches and runs api`
 Spec `bootstrap-api-core` · code in `app/api/v1/searches.py`, `app/api/v1/runs.py`
 
 ### 7. Jobs read API
@@ -99,8 +99,8 @@ Spec `bootstrap-api-core` · code in `app/api/v1/searches.py`, `app/api/v1/runs.
 - [x] Build it: `/develop jobs read api`
    - [x] Keyset cursor encode/decode `(created_at, id)` (AC-11)
    - [x] `GET /v1/jobs` endpoint (AC-11)
-- [ ] Verify it: `/check verify jobs read api`
-- [ ] Test it: `/test jobs read api`
+- [x] Verify it: `/check verify jobs read api`
+- [x] Test it: `/test jobs read api`
 Spec `bootstrap-api-core` · code in `app/api/v1/jobs.py`, `app/api/v1/cursor.py`
 
 ### 8. Test suite (unit + integration)
@@ -110,8 +110,8 @@ Unit tests for settings/logging/models and integration tests (via testcontainers
 - [x] Build it: `/develop test suite (unit + integration)`
    - [x] Unit tests: settings, models, cursor encode/decode
    - [x] Integration tests (testcontainers): happy path, idempotency replay, pagination (AC-12)
-- [ ] Verify it: `/check verify test suite (unit + integration)`
-- [ ] Test it: `/test test suite (unit + integration)`
+- [x] Verify it: `/check verify test suite (unit + integration)`
+- [x] Test it: `/test test suite (unit + integration)`
 Spec `bootstrap-api-core` · code in `tests/unit/`, `tests/integration/`
 
 ## Deferred
